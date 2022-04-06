@@ -1,6 +1,6 @@
 const forms = () => {
-    const form = document.querySelectorAll("form");
-    const inputs = document.querySelectorAll("input");
+    const form = document.querySelectorAll('form');
+    const inputs = document.querySelectorAll('input');
     const phoneInputs = document.querySelectorAll('input[name="user_phone"]');
     phoneInputs.forEach((item) => {
         item.addEventListener("input", () => {
@@ -38,7 +38,7 @@ const forms = () => {
 
             const formData = new FormData(item);
             console.log(formData);
-            postData("../../assets/server.php", formData)
+            postData("assets/server.php", formData)
                 .then((res) => {
                     console.log(res);
                     statusMessage.textContent = message.success;
