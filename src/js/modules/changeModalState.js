@@ -5,17 +5,15 @@ const changeModalState = (state) => {
         windowWith = document.querySelectorAll("#width"),
         windowHeight = document.querySelectorAll("#height"),
         windowType = document.querySelectorAll("#view_type"),
-        windowProfile = document.querySelectorAll(".checkbox"),
-        calcButton = document.querySelectorAll(".button.popup_calc_button"),
-        startBtn = document.querySelectorAll(".popup_calc_btn");
+        windowProfile = document.querySelectorAll(".checkbox");
+
     checkNumInputs("#width");
     checkNumInputs("#heigth");
-    console.log(calcButton);
+
 
     function bindActionToElems(event, elem, prop) {
         elem.forEach((item, i) => {
-            item.addEventListener(event, () => {
-                calcButton.setAttribute("disabled", "disabled");
+            item.addEventListener(event, (e) => {
                 switch (item.nodeName) {
                     case "SPAN":
                         state[prop] = i;
@@ -30,12 +28,8 @@ const changeModalState = (state) => {
                                 }
                             });
                         } else {
-                            if (item.value.length !== "") {
-                                calcButton.forEach((element) => {
-                                    element.disabled = false;
-                                });
-                                state[prop] = item.value;
-                            }
+
+                            state[prop] = item.value;
                         }
 
                         break;
